@@ -51,6 +51,16 @@ export default function App() {
     }, 100);
   };
   const [selectedItem, setSelectedItem] = useState<ItineraryItem | null>(null);
+
+  const handleItemSelect = (item: ItineraryItem) => {
+    setSelectedItem(item);
+    setTimeout(() => {
+      const element = document.getElementById('itinerary-detail');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 80);
+  };
   const [countdownText, setCountdownText] = useState('');
   const [daysLeft, setDaysLeft] = useState<number>(0);
 
@@ -275,7 +285,7 @@ export default function App() {
                       {filteredTimeline.map((item) => (
                         <div
                           key={item.id}
-                          onClick={() => setSelectedItem(item)}
+                          onClick={() => handleItemSelect(item)}
                           className={`border-3 rounded-2xl p-4 cursor-pointer transition flex items-start gap-4 hover:translate-x-1 hover:bg-[#FDFBF7] relative overflow-hidden ${
                             item.isBirthdaySpot
                               ? 'border-[#EC4899] bg-pink-50/20 shadow-[3px_3px_0px_0px_#EC4899]'
@@ -309,7 +319,7 @@ export default function App() {
                     </div>
 
                     {/* Detail Right panel (5 cols) */}
-                    <div className="md:col-span-5">
+                    <div id="itinerary-detail" className="md:col-span-5 scroll-mt-6">
                       <div className="sticky top-4 bg-[#FFFFFE] border-4 border-[#1E1E1E] rounded-3xl p-5 shadow-[5px_5px_0px_0px_#1E1E1E] text-[#1E1E1E] space-y-4">
                         {selectedItem ? (
                           <>
