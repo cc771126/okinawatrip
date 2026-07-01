@@ -59,76 +59,56 @@ export const SkaterJohnMascot: React.FC<SkaterJohnMascotProps> = ({ context = 'd
         transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
       >
         <svg viewBox="0 0 120 120" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          {/* Background Highlight circle */}
-          <circle cx="60" cy="55" r="42" fill="#FFD54F" stroke="#1E1E1E" strokeWidth="3" />
-
-          {/* Skateboard */}
-          <g transform="translate(15, 88)">
-            {/* Board Deck */}
-            <path d="M5,8 C15,2 75,2 85,8 L85,12 C75,15 15,15 5,12 Z" fill="#4FC3F7" stroke="#1E1E1E" strokeWidth="3" strokeLinejoin="round" />
-            {/* Left Wheel */}
-            <circle cx="22" cy="16" r="6" fill="#FF8A65" stroke="#1E1E1E" strokeWidth="2.5" />
-            <circle cx="22" cy="16" r="2" fill="#FFFFFE" />
-            {/* Right Wheel */}
-            <circle cx="68" cy="16" r="6" fill="#FF8A65" stroke="#1E1E1E" strokeWidth="2.5" />
-            <circle cx="68" cy="16" r="2" fill="#FFFFFE" />
+          {/* Background Highlight circle (Hand-drawn look with layered minimalist shapes) */}
+          <circle cx="60" cy="60" r="46" fill="#F4EDE2" stroke="#1E1E1E" strokeWidth="3" />
+          <circle cx="60" cy="60" r="38" fill="#F3D1BD" opacity="0.6" />
+          
+          {/* Skateboard (Nimura style thick outlines, terracotta wood tones) */}
+          <g transform="translate(18, 92)">
+            <path d="M 2 4 C 15 -1, 70 -1, 82 4 C 85 5, 85 8, 81 9 C 70 11, 15 11, 3 9 C -1 8, -1 5, 2 4 Z" fill="#E67D65" stroke="#1E1E1E" strokeWidth="3" strokeLinejoin="round" />
+            {/* Wheels */}
+            <circle cx="20" cy="12" r="5" fill="#FFFFFE" stroke="#1E1E1E" strokeWidth="3" />
+            <circle cx="20" cy="12" r="1.5" fill="#1E1E1E" />
+            <circle cx="64" cy="12" r="5" fill="#FFFFFE" stroke="#1E1E1E" strokeWidth="3" />
+            <circle cx="64" cy="12" r="1.5" fill="#1E1E1E" />
           </g>
 
-          {/* Body & Paws */}
-          <path d="M40,75 C40,65 50,55 60,55 C70,55 80,65 80,75 Z" fill="#FFFFFE" stroke="#1E1E1E" strokeWidth="3" />
-          {/* Hand holding coffee or wave paw */}
-          <circle cx="45" cy="68" r="6" fill="#FFFFFE" stroke="#1E1E1E" strokeWidth="3" />
-          <line x1="42" y1="68" x2="48" y2="68" stroke="#1E1E1E" strokeWidth="1.5" />
-          <line x1="45" y1="65" x2="45" y2="71" stroke="#1E1E1E" strokeWidth="1.5" />
-
-          {/* Dog Head */}
-          <g transform="translate(25, 20)">
-            {/* Ears */}
-            {/* Left Ear */}
-            <path d="M12,20 C5,20 2,35 6,45 C10,50 16,42 16,30 Z" fill="#E0D6C8" stroke="#1E1E1E" strokeWidth="3" strokeLinejoin="round" />
-            {/* Right Ear */}
-            <path d="M58,20 C65,20 68,35 64,45 C60,50 54,42 54,30 Z" fill="#E0D6C8" stroke="#1E1E1E" strokeWidth="3" strokeLinejoin="round" />
+          {/* Dog Body (Relaxed slouching skater hoodie in warm green) */}
+          <path d="M 32 85 C 32 75, 42 66, 60 66 C 78 66, 88 75, 88 85" fill="#5F7D75" stroke="#1E1E1E" strokeWidth="3" strokeLinejoin="round" />
+          <path d="M 46 66 C 46 72, 74 72, 74 66" fill="none" stroke="#1E1E1E" strokeWidth="3" strokeLinecap="round" />
+          
+          {/* Dog Head (Nimura Daisuke style: clean outline, relaxed features) */}
+          <g transform="translate(0, -2)">
+            {/* Floppy ears with muted caramel-beige accent */}
+            <path d="M 34 35 C 22 35, 24 58, 34 58 C 38 58, 39 48, 39 40" fill="#E1C699" stroke="#1E1E1E" strokeWidth="3" strokeLinejoin="round" />
+            <path d="M 86 35 C 98 35, 96 58, 86 58 C 82 58, 81 48, 81 40" fill="#E1C699" stroke="#1E1E1E" strokeWidth="3" strokeLinejoin="round" />
 
             {/* Face Base */}
-            <rect x="15" y="15" width="40" height="36" rx="18" fill="#FFFFFE" stroke="#1E1E1E" strokeWidth="3" />
-            
-            {/* Eyes */}
-            <circle cx="27" cy="30" r="3.5" fill="#1E1E1E" />
-            <circle cx="25.5" cy="28.5" r="1" fill="#FFFFFE" />
-            <circle cx="43" cy="30" r="3.5" fill="#1E1E1E" />
-            <circle cx="41.5" cy="28.5" r="1" fill="#FFFFFE" />
-            
-            {/* Cute Blush */}
-            <ellipse cx="23" cy="36" rx="3.5" ry="2" fill="#FF8A65" opacity="0.6" />
-            <ellipse cx="47" cy="36" rx="3.5" ry="2" fill="#FF8A65" opacity="0.6" />
+            <path d="M 36 38 C 36 24, 84 24, 84 38 C 84 54, 76 64, 60 64 C 44 64, 36 54, 36 38 Z" fill="#FFFFFE" stroke="#1E1E1E" strokeWidth="3" strokeLinejoin="round" />
 
-            {/* Muzzle */}
-            <ellipse cx="35" cy="39" rx="10" ry="7" fill="#FFFFFE" stroke="#1E1E1E" strokeWidth="2.5" />
-            {/* Nose */}
-            <path d="M31,36 C31,34 39,34 39,36 C39,39 31,39 31,36 Z" fill="#1E1E1E" />
-            {/* Mouth */}
-            <path d="M30,41 C32,44 38,44 40,41" fill="none" stroke="#1E1E1E" strokeWidth="2.5" strokeLinecap="round" />
+            {/* Eyes: Minimalist solid dot eyes, far apart */}
+            <circle cx="47" cy="42" r="2.5" fill="#1E1E1E" />
+            <circle cx="73" cy="42" r="2.5" fill="#1E1E1E" />
+
+            {/* Soft subtle peach blush */}
+            <circle cx="44" cy="48" r="3" fill="#F0A395" opacity="0.8" />
+            <circle cx="76" cy="48" r="3" fill="#F0A395" opacity="0.8" />
+
+            {/* Muzzle / Nose / Mouth - relaxed expression */}
+            <ellipse cx="60" cy="45" rx="3.5" ry="2.2" fill="#1E1E1E" />
+            <path d="M 57 49 Q 60 51 63 49" fill="none" stroke="#1E1E1E" strokeWidth="2.5" strokeLinecap="round" />
 
             {/* Backwards Cap */}
-            <g transform="translate(12, -4)">
-              {/* Cap Dome */}
-              <path d="M8,20 C8,8 38,8 38,20 Z" fill="#1976D2" stroke="#1E1E1E" strokeWidth="3" />
-              {/* Cap Brim (Pointing backwards to the right) */}
-              <path d="M35,16 L53,12 C55,14 53,19 35,21 Z" fill="#0D47A1" stroke="#1E1E1E" strokeWidth="3" strokeLinejoin="round" />
-              {/* Cap Button */}
-              <circle cx="23" cy="9" r="2.5" fill="#FFD54F" stroke="#1E1E1E" strokeWidth="2" />
+            <g transform="translate(40, 11)">
+              <path d="M 4 15 C 4 3, 36 3, 36 15 Z" fill="#D2A24C" stroke="#1E1E1E" strokeWidth="3" strokeLinejoin="round" />
+              <path d="M 32 12 L 48 9 C 50 11, 48 15, 32 16 Z" fill="#B3812F" stroke="#1E1E1E" strokeWidth="3" strokeLinejoin="round" />
+              <circle cx="20" cy="3" r="2.5" fill="#FFFFFE" stroke="#1E1E1E" strokeWidth="2" />
             </g>
           </g>
 
-          {/* Little Dog Paw Badge */}
-          <g transform="translate(82, 12)">
-            <circle cx="10" cy="10" r="10" fill="#E57373" stroke="#1E1E1E" strokeWidth="2" />
-            {/* Paw pad */}
-            <ellipse cx="10" cy="12" rx="4" ry="3" fill="#FFFFFE" />
-            <circle cx="6" cy="7" r="1.5" fill="#FFFFFE" />
-            <circle cx="10" cy="5.5" r="1.5" fill="#FFFFFE" />
-            <circle cx="14" cy="7" r="1.5" fill="#FFFFFE" />
-          </g>
+          {/* Sparkles decorations in background (classic Japanese pop illustration) */}
+          <path d="M 22 24 L 24 28 L 28 29 L 24 30 L 22 34 L 20 30 L 16 29 L 20 28 Z" fill="#E67D65" stroke="#1E1E1E" strokeWidth="1.5" />
+          <path d="M 102 46 L 103 49 L 106 50 L 103 51 L 102 54 L 101 51 L 98 50 L 101 49 Z" fill="#D2A24C" stroke="#1E1E1E" strokeWidth="1.5" />
         </svg>
       </motion.div>
     </div>
