@@ -1,0 +1,6 @@
+{
+  "name": "Okinawa Family Trip - Skater John Edition",
+  "description": "沖繩親子三口之旅互動式行程表，配有3歲幼兒友善設施指南、天氣預報、記帳、備忘錄與右駕提醒，採用日系潮牌 Skater John 風格設計。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

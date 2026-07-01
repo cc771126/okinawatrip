@@ -1,0 +1,39 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    match /expenses/{expenseId} {
+      allow read: if true;
+      allow create: if isValidId(expenseId) && 
+                      incoming().id == expenseId &&
+                      incoming().description is string &&
+                      incoming().description.size() <= 200;
+      allow update: if isValidId(expenseId) && 
+                      incoming().id == expenseId;
+      allow delete: if true;
+    }
+
+    match /memos/{memoId} {
+      allow read: if true;
+      allow create: if isValidId(memoId) && 
+                      incoming().id == memoId &&
+                      incoming().title is string &&
+                      incoming().title.size() <= 200;
+      allow update: if isValidId(memoId) && 
+                      incoming().id == memoId;
+      allow delete: if true;
+    }
+  }
+}

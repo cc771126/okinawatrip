@@ -1,0 +1,89 @@
+{
+  "entities": {
+    "Expense": {
+      "title": "Expense",
+      "description": "A travel bookkeeping expense entry representing money spent during the Okinawa trip.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the expense."
+        },
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "The date when the expense was incurred (YYYY-MM-DD)."
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of what was purchased."
+        },
+        "amountJpy": {
+          "type": "number",
+          "description": "The transaction amount in Japanese Yen (JPY)."
+        },
+        "amountTwd": {
+          "type": "number",
+          "description": "The calculated transaction amount in New Taiwan Dollars (TWD)."
+        },
+        "category": {
+          "type": "string",
+          "enum": ["food", "shopping", "transport", "tickets", "stay", "other"],
+          "description": "The expense category."
+        },
+        "createdAt": {
+          "type": "integer",
+          "description": "The epoch timestamp when the expense was recorded."
+        }
+      },
+      "required": ["id", "date", "description", "amountJpy", "amountTwd", "category", "createdAt"]
+    },
+    "Memo": {
+      "title": "Memo",
+      "description": "A trip note or memo that can contain text, tags, and base64 encoded photo/receipt data.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the memo."
+        },
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "The date of the memo entry."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the memo."
+        },
+        "content": {
+          "type": "string",
+          "description": "Detailed text content of the memo."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "A base64 encoded string representing an uploaded receipt or photo."
+        },
+        "tags": {
+          "type": "array",
+          "description": "A list of tags categorizing the memo."
+        },
+        "createdAt": {
+          "type": "integer",
+          "description": "The epoch timestamp when the memo was recorded."
+        }
+      },
+      "required": ["id", "date", "title", "content", "tags", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/expenses/{expenseId}": {
+      "schema": "Expense",
+      "description": "Collection of all bookkeeping expenses."
+    },
+    "/memos/{memoId}": {
+      "schema": "Memo",
+      "description": "Collection of all travel memos and receipt notes."
+    }
+  }
+}
