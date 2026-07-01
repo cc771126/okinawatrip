@@ -40,6 +40,16 @@ import { FloatingNavigator } from './components/FloatingNavigator';
 export default function App() {
   const [activeTab, setActiveTab] = useState<'itinerary' | 'toilet' | 'expense' | 'memo' | 'drive' | 'tips' | 'japanese'>('itinerary');
   const [selectedDay, setSelectedDay] = useState<number>(1);
+
+  const handleTabSelect = (tabId: 'itinerary' | 'toilet' | 'expense' | 'memo' | 'drive' | 'tips' | 'japanese') => {
+    setActiveTab(tabId);
+    setTimeout(() => {
+      const element = document.getElementById('tab-content');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
+  };
   const [selectedItem, setSelectedItem] = useState<ItineraryItem | null>(null);
   const [countdownText, setCountdownText] = useState('');
   const [daysLeft, setDaysLeft] = useState<number>(0);
@@ -181,7 +191,7 @@ export default function App() {
               ].map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveTab(tab.id as any)}
+                  onClick={() => handleTabSelect(tab.id as any)}
                   className={`w-full text-left p-3 rounded-2xl border-2 transition active:scale-[0.99] flex flex-col ${
                     activeTab === tab.id 
                       ? 'bg-[#FFD54F] border-[#1E1E1E] shadow-[3px_3px_0px_0px_#1E1E1E]' 
@@ -201,7 +211,7 @@ export default function App() {
         </div>
 
         {/* Right Side: Tab Content Area (8 columns) */}
-        <div className="lg:col-span-8">
+        <div id="tab-content" className="lg:col-span-8 scroll-mt-6">
           
           <AnimatePresence mode="wait">
             <motion.div

@@ -54,13 +54,22 @@ export const FloatingNavigator: React.FC<FloatingNavigatorProps> = ({
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const scrollToContent = () => {
+    const element = document.getElementById('tab-content');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   const handleTabSelect = (tabId: 'itinerary' | 'toilet' | 'expense' | 'memo' | 'drive' | 'tips' | 'japanese') => {
     setActiveTab(tabId);
     setIsOpen(false);
     // Smooth scroll to top of content after slight delay to allow rendering
     setTimeout(() => {
-      scrollToTop();
-    }, 100);
+      scrollToContent();
+    }, 120);
   };
 
   const handleDaySelect = (dayNum: number) => {
@@ -69,8 +78,8 @@ export const FloatingNavigator: React.FC<FloatingNavigatorProps> = ({
     setIsOpen(false);
     setTimeout(() => {
       // Scroll to top of content
-      scrollToTop();
-    }, 100);
+      scrollToContent();
+    }, 120);
   };
 
   const menuItems = [
