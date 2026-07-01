@@ -35,6 +35,7 @@ import { ExpenseTracker } from './components/ExpenseTracker';
 import { MemoSection } from './components/MemoSection';
 import { OkinawaTips } from './components/OkinawaTips';
 import { JapanesePhrases } from './components/JapanesePhrases';
+import { FloatingNavigator } from './components/FloatingNavigator';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<'itinerary' | 'toilet' | 'expense' | 'memo' | 'drive' | 'tips' | 'japanese'>('itinerary');
@@ -433,6 +434,14 @@ export default function App() {
           <p className="text-[10px] text-gray-400">專為家庭親子自駕遊設計 · 支援離線與 Firebase 雲端資料庫雙儲存</p>
         </div>
       </footer>
+
+      {/* Floating Navigator Helper for mobile scroll support */}
+      <FloatingNavigator 
+        activeTab={activeTab} 
+        setActiveTab={setActiveTab}
+        selectedDay={selectedDay}
+        setSelectedDay={setSelectedDay}
+      />
 
     </div>
   );
